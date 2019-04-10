@@ -1,0 +1,310 @@
+<!--
+Automatically generated HTML file from DocOnce source
+(https://github.com/hplgit/doconce/)
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="description" content="PROBABILISTIC MODEL CODE - Part 1 - Basis of Design">
+
+<title>PROBABILISTIC MODEL CODE - Part 1 - Basis of Design</title>
+
+<!-- Bootstrap style: bootswatch_yeti -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+
+<style type="text/css">
+
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:45px;      /* fixed header height for style bootswatch_yeti */
+  margin:-45px 0 0; /* negative fixed header height */
+}
+</style>
+
+
+</head>
+
+<!-- tocinfo
+{'highest level': 1,
+ 'sections': [('Table of contents',
+               1,
+               'table_of_contents',
+               'table_of_contents'),
+              ('1 Requirements', 1, 'chap:requ', 'chap:requ'),
+              ('1.1 Basic requirements', 2, None, '___sec1'),
+              ('1.2 Reliability differentiation', 2, None, '___sec2'),
+              ('1.3 Requirements for durability', 2, None, '___sec3'),
+              ('2 Principles of limit state design', 1, None, '___sec4'),
+              ('2.1 Limit states and adverse states', 2, None, '___sec5'),
+              ('2.2 Limit State Function', 2, None, '___sec6')]}
+end of tocinfo -->
+
+<body>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "AMS"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+    
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="PMC1.html">PROBABILISTIC MODEL CODE - Part 1 - Basis of Design</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 14px; padding: 4px 15px;"><b>Table of contents</b></a></li>
+     <!-- navigation toc: --> <li><a href="#chap:requ" style="font-size: 14px; padding: 4px 15px;"><b>1 Requirements</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec1" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;1.1 Basic requirements</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec2" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;1.2 Reliability differentiation</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec3" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;1.3 Requirements for durability</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec4" style="font-size: 14px; padding: 4px 15px;"><b>2 Principles of limit state design</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec5" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;2.1 Limit states and adverse states</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec6" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;2.2 Limit State Function</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+
+<div class="container">
+
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+
+<!-- ------------------- main content ---------------------- -->
+
+<p>
+
+
+<div class="jumbotron">
+<center><h1>PROBABILISTIC MODEL CODE - Part 1 - Basis of Design</h1></center>  <!-- document title -->
+
+<p>
+<!-- author(s): Joint Committee on Structural Safety -->
+
+<center>
+<b>Joint Committee on Structural Safety</b>  (<tt>pmc at jcss.com.</tt>)
+</center>
+
+<p>
+<!-- institution(s) -->
+
+<br>
+<p>
+<center><h4>Apr 10, 2019</h4></center> <!-- date -->
+<br>
+<p>
+<b>Synopsis.</b>
+The content of this document can be seen as a common reference for reliability based design and assessment of structures. It is supplemented by the corresponding Parts II - Load Models and III - Resistance Models of the model code. This part doesn&#8217;t give detailed information about methods for the calculation of probabilities. It is assumed that the user of a probabilistic code is familiar with such methods. A clause on the interpretation of probabilities treated in this document is provided in Annex D.
+
+<p>
+</div> <!-- end jumbotron -->
+
+<h1 id="table_of_contents">Table of contents</h2>
+
+<p>
+<a href="#chap:requ"> 1 Requirements </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec1"> 1.1 Basic requirements </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec2"> 1.2 Reliability differentiation </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec3"> 1.3 Requirements for durability </a><br>
+<a href="#___sec4"> 2 Principles of limit state design </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec5"> 2.1 Limit states and adverse states </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec6"> 2.2 Limit State Function </a><br>
+</p>
+
+<h1 id="chap:requ" class="anchor">1 Requirements</h1>
+
+<h2 id="___sec1" class="anchor">1.1 Basic requirements </h2>
+Structures and structural elements shall be designed, constructed and maintained in such a way that they are suited for their use during the design working life and in an economic way.
+
+<p>
+In particular they shall, with appropriate levels of reliability, fulfil the following requirements:
+
+<ul>
+<li> They shall remain fit for the use for which they are required (<em>serviceability limit state requirement</em>)</li>
+<li> They shall withstand extreme and/or frequently repeated actions occurring during their construction and anticipated use (<em>ultimate limit state requirement</em>)</li>
+<li> They shall not be damaged by accidental events like fire, explosions, impact or consequences of human errors, to an extent disproportionate to the triggering event (<em>robustness requirement</em>, see Annex A).</li>
+</ul>
+
+<h2 id="___sec2" class="anchor">1.2 Reliability differentiation </h2>
+The expression <em>with appropriate levels of reliability</em> used above means that the degree of reliability should be adopted to suit the use of the structure, the type of structure or structural element and the situation considered in the design and assessment situation.
+
+<p>
+The choice of the various levels of reliability should take into account the possible consequences of failure in terms of risk to life or injury, the potential economic losses and the degree of social inconvenience, as described in chapter 8. It should also take into account the amount of expense and effort required to reduce the risk of failure. It is further noted, that the term <em>failure</em> as used in this document refers to either inadequate strength or inadequate serviceability of the structure.
+
+<p>
+The consequences of a failure generally depend on the mode of failure, specially in those cases when the risk to human life or injury exists.
+
+<p>
+In order to provide a structure corresponding to the requirements and to the assumptions made in the design, appropriate quality measures shall be adopted. These measures comprise definition of reliability requirements, organisational measures and controls at the stages of design, execution and use and the maintenance of the structure.
+
+<h2 id="___sec3" class="anchor">1.3 Requirements for durability </h2>
+The durability of the structure in its environment shall be such that it remains fit for use during its design working life. This requirement can be considered in one of the following ways:
+
+<ol>
+<li> By using materials that, if well maintained, will not degenerate during the design working life.</li>
+<li> By giving such dimensions that deterioration during the design working life is compensated.</li>
+<li> By chosing a shorter lifetime for structural elements, which may be replaced one or more times during the design working life.</li>
+<li> By inspection at fixed or condition dependent intervals and appropriate maintenance activities.</li>
+</ol>
+
+In all cases the reliability requirements for long and short term periods should be met. Analysis aspects on durability are described in Annex B.
+
+<h1 id="___sec4" class="anchor">2 Principles of limit state design </h1>
+
+<h2 id="___sec5" class="anchor">2.1 Limit states and adverse states </h2>
+
+<p>
+The structural performance of a whole structure or part of it should be described with reference to a specified set of limit states which separate desired states of the structure from adverse states.
+The limit states are divided into the following two basic categories:
+
+<ul>
+<li> the <em>ultimate limit states</em>, which concern the maximum load carrying capacity as well as the maximum deformability</li>
+<li> the <em>serviceability limit states</em>, which concern the normal use.</li>
+</ul>
+
+The exceedance of a limit state may be irreversible or reversible. In the irreversible case the damage or malfunction associated with the limit state being exceeded will remain until the structure has been repaired. In the reversible case the damage or malfunction will remain only as long as the cause of the limit state being exceeded is present. As soon as this cause ceases to act, a transition from the adverse state back to the desired state occurs.
+
+<p>
+It is further noted here that in some cases a limit between the aforementioned limit state types may be defined This can be done by an artificial discretization of a the continuous situation between the serviceability and the ultimate limit state. By applying such a procedure a so- called partial damage limit state&#8221; can be defined. For example in case of earthquake damage of plant structures such limit state is associated to the safe shut down of the plant.
+
+<p>
+<em>Ultimate limit states</em> may correspond to the following adverse states:
+
+<ul>
+<li> loss of equilibrium of the structure or of a part of the structure, considered as a rigid body (eg. overturning)</li>
+<li> attainment of the maximum resistance capacity of sections, members or connections by rupture or excessive deformations</li>
+<li> rupture of members or connections caused by fatigue or other time-dependent effects instability of the structure or part of it</li>
+<li> sudden change of the assumed structural system to a new system, (eg. snap through)</li>
+</ul>
+
+The exceedance of an ultimate limit state is almost always irreversible and the first time that this occurs causes failure.
+
+<p>
+<em>Serviceability limit states</em> may correspond to the following adverse states:
+
+<ul>
+<li> local damage (including cracking) which may reduce the durability of the structure or affect the efficiency or appearance of structural or non-structural elements.</li>
+<li> observable damage caused by fatigue or other time dependent effects</li>
+<li> unacceptable deformations which affect the efficient use or appearance of structural or non-structural elements or the functioning of equipment.</li>
+</ul>
+
+excessive vibrations which cause discomfort to people or affect non-structural
+
+<ul>
+<li> elements or the functioning of equipment.</li>
+</ul>
+
+In the cases of permanent local damage or permanent unacceptable deformations the exceedance of a serviceability limit state is irreversible and the first time that this occurs causes failure.
+
+<p>
+In other cases the exceedance of a serviceability limit state may be reversible and then failure occurs:
+
+<ol>
+<li> the first time the serviceability limit state is exceeded, if no exceedance is considered as acceptable</li>
+<li> if exceedance is acceptable but the time when the structure is in the undesired state is longer than specified</li>
+<li> if exceedance is acceptable but the number of times that the serveciability limit state is exceeded is larger than specified</li>
+<li> if a combination of the above criteria occur.</li>
+</ol>
+
+These cases may involve temporary local damage (eg. temporarily wide cracks), temporary large deformations and vibrations. Limit values for the serviceability limit state should be defined on the basis of <em>utility considerations</em>.
+
+<h2 id="___sec6" class="anchor">2.2 Limit State Function </h2>
+
+<p>
+For each specific limit state the relevant basic variables should be identified, i.e. the variables which characterize:
+
+<ul>
+<li> actions and environmental influences</li>
+<li> properties of materials and soils</li>
+<li> geometrical parameters</li>
+</ul>
+
+Such variables may be time dependent. Models, which describe the behaviour of a structure, should be established for each limit state. These models include mechanical models, which describe the structural behaviour, as well as other physical or chemical models, which describe the effects of environmental influences on the material properties. The parameters of such models should in principle be treated in the same way as basic variables.
+
+<p>
+Serviceability constaints (limit values according to 4.1) should in principle be regarded as random and may in many cases be treated in the same way as basic variables.
+
+<p>
+Where calculation models are available, the limit state can be described with aid of a function, \( g \), of the basic variables \( \boldsymbol{X}(t) = X_1(t), X_2(t), ... \) so that
+
+$$
+\begin{equation}
+g\left(\boldsymbol{X}(t)\right)=0
+\label{eq:limit}
+\end{equation}
+$$
+
+Equation \eqref{eq:limit} is called the limit state equation, and
+$$
+\begin{equation}
+g\left(\boldsymbol{X}(t)\right)\leq 0
+\label{eq:adverse}
+\end{equation}
+$$
+
+identifies the adverse state.
+
+<p>
+In a component analysis where there is one dominating failure mode the limit state condition can normally be described by one equation according to eq. \eqref{eq:limit}. In a system analysis, where more than one failure mode may be determining, there are several such equations.
+
+<!-- ------------------- end of main content --------------- -->
+
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap footer
+<footer>
+<a href="http://..."><img width="250" align=right src="http://..."></a>
+</footer>
+-->
+
+
+<center style="font-size:80%">
+<!-- copyright --> &copy; 2019, Joint Committee on Structural Safety. Released under CC Attribution 4.0 license
+</center>
+
+
+</body>
+</html>
+    
+
